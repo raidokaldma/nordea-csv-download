@@ -1,0 +1,13 @@
+{
+  "name": "nordea-csv-download",
+  "version": "1.0.0",
+  "description": "Logs in to nordea.ee, downloads account statement in CSV format",
+  "main": "index.js",
+  "scripts": { "start" : "node ./index.js" },
+  "author": "Raido Kaldma",
+  "dependencies": {
+    "chromedriver": "2.30.1",
+    "readline-sync": "1.4.7",
+    "selenium-webdriver": "3.4.0"
+  }
+}
