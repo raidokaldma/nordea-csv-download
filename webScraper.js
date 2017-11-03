@@ -30,9 +30,11 @@ function downloadCSV(username, password) {
     driver.wait(until.elementLocated(By.xpath("//a[contains(text(), 'Konto väljavõte')]")), 10000);
     driver.findElement(By.xpath("//a[contains(text(), 'Konto väljavõte')]")).click();
 
-    let dropdown = driver.findElement(By.name('layoutList'));
-    driver.wait(until.elementIsVisible(dropdown));
-    dropdown.findElement(By.xpath("//option[contains(text(), 'CSV')]")).click();
+    let exportFormatDropdown = driver.findElement(By.name('layoutList'));
+    driver.wait(until.elementIsVisible(exportFormatDropdown));
+    exportFormatDropdown.findElement(By.xpath("//option[contains(text(), 'CSV')]")).click();
+
+    driver.findElement(By.name('predefinedPeriod')).findElement(By.xpath("//option[contains(text(), 'Eelmise kuu algusest')]")).click();
 
     driver.findElement(By.css("input[value='Vaata väljavõtet']")).click();
 
