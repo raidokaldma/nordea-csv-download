@@ -10,14 +10,13 @@ function downloadCSV(username, password) {
         .build();
 
     driver.get('https://netbank.nordea.ee');
-    driver.findElement(By.id('userId')).sendKeys(username);
+
+    driver.executeScript(`document.getElementById('userId').setAttribute('value', '${username}')`);
     driver.findElement(By.id('btnAcceptUserId')).click();
 
-    let authCodeElement = driver.findElement(By.id('authCode'));
-    driver.wait(until.elementIsVisible(authCodeElement));
-    authCodeElement.sendKeys(password);
+    driver.wait(until.elementIsVisible(driver.findElement(By.id('authCode'))));
+    driver.executeScript(`document.getElementById('authCode').value='${password}'`);
     driver.findElement(By.id('btnAcceptAuthCode')).click();
-
 
     driver.wait(until.elementLocated(By.xpath("//a[contains(text(), 'Kontod')]")), 10000);
     driver.findElement(By.xpath("//a[contains(text(), 'Kontod')]")).click();
