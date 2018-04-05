@@ -3,11 +3,11 @@ Downloads Account Statement from Nordea Bank (in Estonia) in CSV Format
 
 ## Set up
 ```
-yarn install
+npm install
 ```
 
 ## Running
 ```
-yarn start
+npm start
 ```
 
